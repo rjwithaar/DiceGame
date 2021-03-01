@@ -5,6 +5,8 @@ if (!defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
 }
 
+require_once(__DIR__ . DS . 'database' . DS . 'db.php');
+
 // Include all classes
 foreach (glob(implode(DS, [__DIR__, 'functions', '*.php'])) as $file) {
     require_once($file);
