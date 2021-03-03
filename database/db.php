@@ -18,6 +18,40 @@ class DB
         }
     }
 
+    public function Create()
+    {
+
+    }
+
+    /**
+     * Function to read a table from the database
+     * @param string $table name of the table to read
+     * @return array a list of all rows of re selected table
+     */
+    public function Read($table)
+    {
+        $rows = [];
+        $query = sprintf('SELECT * FROM `%s`', $table);
+
+        $sth = $this->db->prepare($query);
+        $sth->execute();
+
+        while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
+            $rows[] = $row;
+        }
+        return $rows;
+    }
+
+    public function Update()
+    {
+
+    }
+
+    public function Delete()
+    {
+
+    }
+
     public function getUsers()
     {
         $rows = [];
