@@ -26,12 +26,14 @@ class DB
     /**
      * Function to read a table from the database
      * @param string $table name of the table to read
+     * @param string $columns name of columns to select; default *
+     * @param string $where filter rows with where; default 1
      * @return array a list of all rows of re selected table
      */
-    public function Read($table)
+    public function Read($table, $columns = '*', $where = '1')
     {
         $rows = [];
-        $query = sprintf('SELECT * FROM `%s`', $table);
+        $query = sprintf('SELECT %2$s FROM `%1$s` WHERE %3$s', $table, $columns, $where);
 
         $sth = $this->db->prepare($query);
         $sth->execute();
