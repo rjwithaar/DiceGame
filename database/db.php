@@ -44,9 +44,19 @@ class DB
         return $rows;
     }
 
-    public function Update()
+    /**
+     * Function to Update database records
+     * @param string $table name of the table to read
+     * @param string $set colums and values to set
+     * @param string $where filter rows with where; default 1
+     * @return bool true on succes
+     */
+    public function Update($table, $set, $where = '1')
     {
-
+        $query = sprintf('UPDATE %1$s SET %2$s WHERE %3$s', $table, $set, $where);
+        $sth = $this->db->prepare($query);
+        $sth->execute();
+        return true;
     }
 
     public function Delete()
