@@ -59,9 +59,18 @@ class DB
         return true;
     }
 
-    public function Delete()
+    /**
+     * Function to Delete database records
+     * @param string $table name of the table to read
+     * @param string $where filter rows to delete
+     * @return bool true on success
+     */
+    public function Delete($table, $where)
     {
-
+        $query = sprintf('DELETE FROM %1$s WHERE %2$s', $table, $where);
+        $sth = $this->db->prepare($query);
+        $sth->execute();
+        return true;
     }
 
     public function getUsers()
