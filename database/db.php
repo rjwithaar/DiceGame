@@ -82,23 +82,6 @@ class DB
         $sth->execute();
         return true;
     }
-
-    public function getUsers()
-    {
-        $rows = [];
-        $query = 'SELECT * FROM `users`';
-
-        $sth = $this->db->prepare($query);
-        $sth->execute();
-
-        while ($row = $sth->fetch(PDO::FETCH_ASSOC)) {
-            $rows[] = $row;
-        }
-
-        echo '<pre>';
-        var_dump($rows);
-        echo '</pre>';
-    }
 }
 
 $db = new DB();
