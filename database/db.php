@@ -18,9 +18,19 @@ class DB
         }
     }
 
-    public function Create()
+    /**
+     * Function to insert a record to the database
+     * @param string $table name of the table to insert record
+     * @param string $columns name of columns to insert record
+     * @param string $values data to insert
+     * @return bool true on success
+     */
+    public function Create($table, $columns,$values)
     {
-
+        $query = sprintf('INSERT INTO %1$s (%2$s) VALUES (%3$s)', $table, $columns, $values);
+        $sth = $this->db->prepare($query);
+        $sth->execute();
+        return true;
     }
 
     /**
