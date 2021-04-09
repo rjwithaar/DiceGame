@@ -1,8 +1,44 @@
-
-.border-purple {
-    border-color: var(--bs-purple) !important;
+/* yellow */
+.border-yellow {
+    border-color: var(--bs-yellow) !important;
+    outline: none;
+}
+.bg-yellow {
+    background-color: var(--bs-yellow) !important;
 }
 
+/* blue */
+.border-blue {
+    border-color: var(--bs-blue) !important;
+    outline: none;
+}
+.bg-blue {
+    background-color: var(--bs-blue) !important;
+}
+
+/* green */
+.border-green {
+    border-color: var(--bs-green) !important;
+    outline: none;
+}
+.bg-green {
+    background-color: var(--bs-green) !important;
+}
+
+/* orange */
+.border-orange {
+    border-color: var(--bs-orange) !important;
+    outline: none;
+}
+.bg-orange {
+    background-color: var(--bs-orange) !important;
+}
+
+/* purple */
+.border-purple {
+    border-color: var(--bs-purple) !important;
+    outline: none;
+}
 .bg-purple {
     background-color: var(--bs-purple) !important;
 }
