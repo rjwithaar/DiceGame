@@ -13,7 +13,7 @@ class ScoreArea extends Score
         for ($i=0; $i<=$rows; $i++) {
             $content .= PHP_EOL . '<div class="row">';
             for ($j = 1; $j <= 5; $j++) {
-                $content .= PHP_EOL . sprintf($this->loadPart('value-block'), $color, $i . $j, null);
+                $content .= PHP_EOL . sprintf($this->loadPart('value-block'), $color, $i . $j, $_POST[$color.'-'.$i . $j]);
             }
             $content .= PHP_EOL . '</div>';
         }
@@ -30,7 +30,7 @@ class ScoreArea extends Score
         $area = $this->loadPart('area-line');
         $scores = [];
         for ($i=1; $i<12; $i++) {
-            $scores[] = sprintf($this->loadPart('value-block'), $color, $i, null);
+            $scores[] = sprintf($this->loadPart('value-block'), $color, $i, $_POST[$color.'-'.$i]);
         }
         return sprintf($area, $color, implode(PHP_EOL, $scores));
     }

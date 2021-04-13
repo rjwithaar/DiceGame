@@ -16,9 +16,10 @@ class ScoreSheet extends Score
     public function showScoreSheet()
     {
         $form = $this->loadPart('form');
-        $area['div-row'] = '<div class="row m-0">';
-        $area['yellow']  = $this->scoreArea->ScoreBlock('yellow', 4, 'me-2');
-        $area['blue']    = $this->scoreArea->ScoreBlock('blue', 3, 'ms-2');
+        $area['div-row'] = '<div class="row m-0"><div class="col col-1">&nbsp;</div>';
+        $area['yellow']  = $this->scoreArea->ScoreBlock('yellow', 4, '');
+        $area['divider'] = '<div class="col col-1">&nbsp;</div>';
+        $area['blue']    = $this->scoreArea->ScoreBlock('blue', 3, '');
         $area['div-end'] = '</div>';
         $area['green']   = $this->scoreArea->ScoreLine('green');
         $area['orange']  = $this->scoreArea->ScoreLine('orange');
