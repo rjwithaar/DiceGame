@@ -42,3 +42,17 @@
 .bg-purple {
     background-color: var(--bs-purple) !important;
 }
+
+[bonus-data]:after {
+    content: attr(bonus-data);
+    display: block;
+    position: absolute;
+    background: #333;
+    color: #FFF;
+    margin: -.5em 0 0 1em;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: .25em;
+}

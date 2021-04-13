@@ -24,9 +24,33 @@ class ScoreArea extends Score
         ]
     ];
 
+    private $bonus = [
+        'green' => [
+            '6' => 'B',
+            '7' => 'F',
+            '9' => 'P6'
+        ],
+        'orange' => [
+            '5' => 'Y',
+            '6' => '+1',
+            '8' => 'F',
+            '10' => 'P6'
+        ],
+        'purple' => [
+            '4' => 'B',
+            '5' => '+1',
+            '6' => 'Y',
+            '7' => 'F',
+            '9' => 'G',
+            '10' => 'O6',
+            '11' => '+1'
+        ]
+    ];
+
     public function __construct()
     {
         $this->default = (object) $this->default;
+        $this->bonus = (object) $this->bonus;
     }
 
     public function ScoreBlock($color, $rows, $class = null)
@@ -36,7 +60,7 @@ class ScoreArea extends Score
         for ($i=1; $i<=$rows; $i++) {
             $content .= PHP_EOL . '<div class="d-flex">';
             for ($j = 1; $j <= 4; $j++) {
-                $content .= PHP_EOL . sprintf($this->loadPart('value-block'), $color, $i . $j, $_POST[$color.'-'.$i . $j], $this->default->$color[$i.$j]);
+                $content .= PHP_EOL . sprintf($this->loadPart('value-block'), $color, $i . $j, $_POST[$color.'-'.$i . $j], $this->default->$color[$i.$j], null);
             }
             $content .= PHP_EOL . '</div>';
         }
@@ -48,7 +72,8 @@ class ScoreArea extends Score
         $area = $this->loadPart('area-line');
         $scores = [];
         for ($i=1; $i<12; $i++) {
-            $scores[] = sprintf($this->loadPart('value-block'), $color, $i, $_POST[$color.'-'.$i], $this->default->$color[$i]);
+            $bonus = isset($this->bonus->$color[$i]) ? sprintf('bonus-data="%s"', $this->bonus->$color[$i]) : null;
+            $scores[] = sprintf($this->loadPart('value-block'), $color, $i, $_POST[$color.'-'.$i], $this->default->$color[$i], $bonus);
         }
         return sprintf($area, $color, implode(PHP_EOL, $scores));
     }
