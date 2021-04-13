@@ -1,3 +1,3 @@
-<div class="col %2$s">
+<div class="col p-0 %2$s">
     %1$s
 </div>
