@@ -6,6 +6,9 @@ namespace DiceGame;
 
 class ScoreArea extends Score
 {
+    /**
+     * @var array list of default values
+     */
     private $default = [
         'yellow' => [
             '11' => '3', '12' => '6', '13' => '5', '14' => 'X',
@@ -24,6 +27,9 @@ class ScoreArea extends Score
         ]
     ];
 
+    /**
+     * @var array list of bonus blocks
+     */
     private $bonus = [
         'green' => [
             '6' => 'B',
@@ -47,12 +53,24 @@ class ScoreArea extends Score
         ]
     ];
 
+    /**
+     * ScoreArea constructor
+     * Convert arrays to objects for easier access
+     */
     public function __construct()
     {
+        parent::__construct();
         $this->default = (object) $this->default;
         $this->bonus = (object) $this->bonus;
     }
 
+    /**
+     * Function to create the score blocks area's
+     * @param $color
+     * @param $rows
+     * @param null $class
+     * @return string
+     */
     public function ScoreBlock($color, $rows, $class = null)
     {
         $area = $this->loadPart('area-block');
@@ -60,20 +78,30 @@ class ScoreArea extends Score
         for ($i=1; $i<=$rows; $i++) {
             $content .= PHP_EOL . '<div class="d-flex">';
             for ($j = 1; $j <= 4; $j++) {
-                $content .= PHP_EOL . sprintf($this->loadPart('value-block'), $color, $i . $j, $_POST[$color.'-'.$i . $j], $this->default->$color[$i.$j], null);
+                $value = ($this->default->$color[$i.$j] == 'X') ? 'disabled' : (isset($_POST[$color.'-'.$i . $j]) ? 'checked' : null);
+                $content .= PHP_EOL . sprintf($this->loadPart('check-block'), $color, $i . $j, $value, $this->default->$color[$i.$j], null);
             }
             $content .= PHP_EOL . '</div>';
         }
         return sprintf($area, $content, $class);
     }
 
+    /**
+     * Function to create te score line area's
+     * @param $color
+     * @return string
+     */
     public function ScoreLine($color)
     {
         $area = $this->loadPart('area-line');
         $scores = [];
         for ($i=1; $i<12; $i++) {
             $bonus = isset($this->bonus->$color[$i]) ? sprintf('bonus-data="%s"', $this->bonus->$color[$i]) : null;
-            $scores[] = sprintf($this->loadPart('value-block'), $color, $i, $_POST[$color.'-'.$i], $this->default->$color[$i], $bonus);
+            if ($color == 'green') {
+                $scores[] = sprintf($this->loadPart('check-block'), $color, $i, isset($_POST[$color.'-'.$i]) ? 'checked' : null, $this->default->$color[$i], $bonus);
+            } else {
+                $scores[] = sprintf($this->loadPart('value-block'), $color, $i, $_POST[$color . '-' . $i], $this->default->$color[$i], $bonus);
+            }
         }
         return sprintf($area, $color, implode(PHP_EOL, $scores));
     }

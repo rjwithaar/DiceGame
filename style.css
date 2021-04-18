@@ -43,6 +43,28 @@
     background-color: var(--bs-purple) !important;
 }
 
+/* checkbox */
+input[type=checkbox] {
+    display: none;
+}
+input[type=checkbox] + label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+input[type=checkbox]:disabled + label:after {
+    content: '\2718';
+    position: absolute;
+    font-size: 2em;
+}
+input[type=checkbox]:checked + label:after {
+    content: '\2714';
+    position: absolute;
+    font-size: 2em;
+}
+
+/* bonus value */
 [bonus-data]:after {
     content: attr(bonus-data);
     display: block;
