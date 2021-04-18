@@ -1,8 +1,6 @@
 <?php
 
-
 namespace DiceGame;
-
 
 class ScoreArea extends Score
 {
