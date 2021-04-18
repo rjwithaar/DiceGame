@@ -1,18 +1,26 @@
 <?php
 
-
 namespace DiceGame;
-
 
 class ScoreSheet extends Score
 {
     public $scoreArea;
+    public $scoreCalculation;
 
+    /**
+     * ScoreSheet constructor
+     * Initialise ScoreArea and ScoreCalculation
+     */
     public function __construct()
     {
+        parent::__construct();
         $this->scoreArea = new ScoreArea();
+        $this->scoreCalculation = new ScoreCalculation();
     }
 
+    /**
+     * Show full score sheet
+     */
     public function showScoreSheet()
     {
         $form = $this->loadPart('form');
@@ -24,6 +32,7 @@ class ScoreSheet extends Score
         $area['green']   = $this->scoreArea->ScoreLine('green');
         $area['orange']  = $this->scoreArea->ScoreLine('orange');
         $area['purple']  = $this->scoreArea->ScoreLine('purple');
+        $area['score']   = $this->scoreCalculation->showScores();
         printf($form, implode(PHP_EOL, $area));
     }
 
