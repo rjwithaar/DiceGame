@@ -1,0 +1,80 @@
+/* yellow */
+.border-yellow {
+    border-color: var(--bs-yellow) !important;
+    outline: none;
+}
+.bg-yellow {
+    background-color: var(--bs-yellow) !important;
+}
+
+/* blue */
+.border-blue {
+    border-color: var(--bs-blue) !important;
+    outline: none;
+}
+.bg-blue {
+    background-color: var(--bs-blue) !important;
+}
+
+/* green */
+.border-green {
+    border-color: var(--bs-green) !important;
+    outline: none;
+}
+.bg-green {
+    background-color: var(--bs-green) !important;
+}
+
+/* orange */
+.border-orange {
+    border-color: var(--bs-orange) !important;
+    outline: none;
+}
+.bg-orange {
+    background-color: var(--bs-orange) !important;
+}
+
+/* purple */
+.border-purple {
+    border-color: var(--bs-purple) !important;
+    outline: none;
+}
+.bg-purple {
+    background-color: var(--bs-purple) !important;
+}
+
+/* checkbox */
+input[type=checkbox] {
+    display: none;
+}
+input[type=checkbox] + label {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    color: #999;
+}
+input[type=checkbox]:disabled + label:after {
+    content: '\2718';
+    position: absolute;
+    font-size: 2em;
+}
+input[type=checkbox]:checked + label:after {
+    content: '\2714';
+    position: absolute;
+    font-size: 2em;
+}
+
+/* bonus value */
+[bonus-data]:after {
+    content: attr(bonus-data);
+    display: block;
+    position: absolute;
+    background: #333;
+    color: #FFF;
+    margin: -.5em 0 0 1em;
+    width: 1.5em;
+    height: 1.5em;
+    text-align: center;
+    vertical-align: middle;
+    border-radius: .25em;
+}
