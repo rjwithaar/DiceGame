@@ -43,7 +43,7 @@
     background-color: var(--bs-purple) !important;
 }
 
-/* red */
+/* bonus */
 .border-bonus {
     border-color: var(--bs-red) !important;
     outline: none;
@@ -52,13 +52,19 @@
     background-color: var(--bs-red) !important;
 }
 
-/* black */
+/* total */
 .border-total {
     border-color: var(--bs-dark) !important;
     outline: none;
 }
 .bg-total {
     background-color: var(--bs-dark) !important;
+}
+
+/* symbol */
+.symbol {
+    padding: .1em;
+    font-size: 2em;
 }
 
 /* checkbox */
