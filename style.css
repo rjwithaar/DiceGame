@@ -44,21 +44,21 @@
 }
 
 /* red */
-.border-red {
+.border-bonus {
     border-color: var(--bs-red) !important;
     outline: none;
 }
-.bg-red {
+.bg-bonus {
     background-color: var(--bs-red) !important;
 }
 
 /* black */
-.border-black {
-    border-color: var(--bs-black) !important;
+.border-total {
+    border-color: var(--bs-dark) !important;
     outline: none;
 }
-.bg-black {
-    background-color: var(--bs-black) !important;
+.bg-total {
+    background-color: var(--bs-dark) !important;
 }
 
 /* checkbox */
@@ -82,6 +82,12 @@ input[type=checkbox]:checked + label:after {
     content: '\2714';
     position: absolute;
     font-size: 2em;
+}
+
+/* calculation */
+.calculation {
+    font-weight: bold;
+    color: var(--bs-light);
 }
 
 /* bonus value */

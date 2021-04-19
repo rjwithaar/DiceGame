@@ -76,7 +76,7 @@ class ScoreArea extends Score
         for ($i=1; $i<=$rows; $i++) {
             $content .= PHP_EOL . '<div class="d-flex">';
             for ($j = 1; $j <= 4; $j++) {
-                $value = ($this->default->$color[$i.$j] == 'X') ? 'disabled' : (isset($_POST[$color.'-'.$i . $j]) ? 'checked' : null);
+                $value = ($this->default->$color[$i.$j] == 'X') ? 'disabled' : (isset($this->post->$color[$i.$j]) ? 'checked' : null);
                 $content .= PHP_EOL . sprintf($this->loadPart('check-block'), $color, $i . $j, $value, $this->default->$color[$i.$j], null);
             }
             $content .= PHP_EOL . '</div>';
@@ -96,9 +96,9 @@ class ScoreArea extends Score
         for ($i=1; $i<12; $i++) {
             $bonus = isset($this->bonus->$color[$i]) ? sprintf('bonus-data="%s"', $this->bonus->$color[$i]) : null;
             if ($color == 'green') {
-                $scores[] = sprintf($this->loadPart('check-block'), $color, $i, isset($_POST[$color.'-'.$i]) ? 'checked' : null, $this->default->$color[$i], $bonus);
+                $scores[] = sprintf($this->loadPart('check-block'), $color, $i, isset($this->post->$color[$i]) ? 'checked' : null, $this->default->$color[$i], $bonus);
             } else {
-                $scores[] = sprintf($this->loadPart('value-block'), $color, $i, $_POST[$color . '-' . $i], $this->default->$color[$i], $bonus);
+                $scores[] = sprintf($this->loadPart('value-block'), $color, $i, $this->post->$color[$i], $this->default->$color[$i], $bonus);
             }
         }
         return sprintf($area, $color, implode(PHP_EOL, $scores));
