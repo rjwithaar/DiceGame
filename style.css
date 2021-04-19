@@ -43,7 +43,7 @@
     background-color: var(--bs-purple) !important;
 }
 
-/* red */
+/* bonus */
 .border-bonus {
     border-color: var(--bs-red) !important;
     outline: none;
@@ -52,13 +52,19 @@
     background-color: var(--bs-red) !important;
 }
 
-/* black */
+/* total */
 .border-total {
     border-color: var(--bs-dark) !important;
     outline: none;
 }
 .bg-total {
     background-color: var(--bs-dark) !important;
+}
+
+/* symbol */
+.symbol {
+    padding: .1em;
+    font-size: 1.5em;
 }
 
 /* checkbox */
@@ -75,13 +81,13 @@ input[type=checkbox] + label {
 input[type=checkbox]:disabled + label:after {
     content: '\2718';
     position: absolute;
-    font-size: 2em;
+    font-size: 1.5em;
     cursor: default;
 }
 input[type=checkbox]:checked + label:after {
     content: '\2714';
     position: absolute;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 /* calculation */
@@ -95,12 +101,38 @@ input[type=checkbox]:checked + label:after {
     content: attr(bonus-data);
     display: block;
     position: absolute;
-    background: #333;
-    color: #FFF;
+    color: var(--bs-light);
     margin: -.5em 0 0 1em;
+    padding: .1em;
     width: 1.5em;
     height: 1.5em;
+    font-size: .75em;
     text-align: center;
     vertical-align: middle;
     border-radius: .25em;
+    z-index: 9;
+}
+[bonus-color$="-r"]:after {
+    margin: -.75em 0 0 -.75em;
+}
+[bonus-color$="-c"]:after {
+    margin: -.5em 0 0 2.75em;
+}
+[bonus-color^="yellow"]:after {
+    background: var(--bs-yellow);
+}
+[bonus-color^="blue"]:after {
+    background: var(--bs-blue);
+}
+[bonus-color^="green"]:after {
+    background: var(--bs-green);
+}
+[bonus-color^="orange"]:after {
+    background: var(--bs-orange);
+}
+[bonus-color^="purple"]:after {
+    background: var(--bs-purple);
+}
+[bonus-color^="bonus"]:after {
+    background: var(--bs-dark);
 }
