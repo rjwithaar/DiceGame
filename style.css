@@ -64,7 +64,7 @@
 /* symbol */
 .symbol {
     padding: .1em;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 /* checkbox */
@@ -81,13 +81,13 @@ input[type=checkbox] + label {
 input[type=checkbox]:disabled + label:after {
     content: '\2718';
     position: absolute;
-    font-size: 2em;
+    font-size: 1.5em;
     cursor: default;
 }
 input[type=checkbox]:checked + label:after {
     content: '\2714';
     position: absolute;
-    font-size: 2em;
+    font-size: 1.5em;
 }
 
 /* calculation */
@@ -103,19 +103,20 @@ input[type=checkbox]:checked + label:after {
     position: absolute;
     color: var(--bs-light);
     margin: -.5em 0 0 1em;
+    padding: .1em;
     width: 1.5em;
     height: 1.5em;
-    font-weight: bold;
+    font-size: .75em;
     text-align: center;
     vertical-align: middle;
     border-radius: .25em;
     z-index: 9;
 }
 [bonus-color$="-r"]:after {
-    margin: -.25em 0 0 -.75em;
+    margin: -.75em 0 0 -.75em;
 }
 [bonus-color$="-c"]:after {
-    margin: -.5em 0 0 3em;
+    margin: -.5em 0 0 2.75em;
 }
 [bonus-color^="yellow"]:after {
     background: var(--bs-yellow);
