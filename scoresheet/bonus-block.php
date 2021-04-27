@@ -1,4 +1,4 @@
-<div class="col ratio ratio-1x1 m-1 rounded bg-total text-center">
+<div class="col ratio ratio-1x1 m-1 rounded bg-total text-center bonus-block">
     <span class="symbol text-white">%3$s</span>
 </div>
 <div class="col ratio ratio-1x1 m-1">
