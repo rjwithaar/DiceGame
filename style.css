@@ -51,6 +51,9 @@
 .bg-bonus {
     background-color: var(--bs-red) !important;
 }
+.bonus-block {
+    cursor: pointer;
+}
 
 /* total */
 .border-total {

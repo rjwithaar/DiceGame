@@ -1,11 +1,12 @@
 <?php
+session_start();
 
 // Set smart Directory Separator
 if (!defined('DS')) {
     define('DS', DIRECTORY_SEPARATOR);
 }
 
-require_once(__DIR__ . DS . 'database' . DS . 'db.php');
+//require_once(__DIR__ . DS . 'database' . DS . 'db.php');
 
 // Include all classes
 foreach (glob(implode(DS, [__DIR__, 'functions', '*.php'])) as $file) {
