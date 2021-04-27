@@ -86,7 +86,7 @@ input[type=checkbox]:checked + label:after {
     position: absolute;
     font-size: 1.5rem;
 }
-input[type=checkbox]:checked + label[for$="-c"]:after {
+input[type=checkbox]:checked + label[for$="-click"]:after {
     display: none;
 }
 

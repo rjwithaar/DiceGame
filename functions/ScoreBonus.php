@@ -106,7 +106,7 @@ class ScoreBonus extends Score
     private function AutoBonus($type, $symbol)
     {
         $click = $type.'-click';
-        if (isset($this->post->$click)) {
+        if (isset($this->post->$click) && $this->post->$type > 0) {
             $this->post->$type--;
         }
         $save = [];
