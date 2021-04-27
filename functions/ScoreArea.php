@@ -54,6 +54,7 @@ class ScoreArea extends Score
             '35' => ['bonus-r', '&starf;'],
         ],
         'green' => [
+            '4' => ['bonus', '+1'],
             '6' => ['blue', 'X'],
             '7' => ['bonus', '&starf;'],
             '9' => ['purple', '6'],
@@ -61,8 +62,10 @@ class ScoreArea extends Score
         ],
         'orange' => [
             '3' => ['bonus', '&olarr;'],
+            '4' => ['bonus', 'x2'],
             '5' => ['yellow', 'X'],
             '6' => ['bonus', '+1'],
+            '7' => ['bonus', 'x2'],
             '8' => ['bonus', '&starf;'],
             '10'=> ['purple', '6']
         ],

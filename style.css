@@ -61,12 +61,6 @@
     background-color: var(--bs-dark) !important;
 }
 
-/* symbol */
-.symbol {
-    padding: .1em;
-    font-size: 1.5em;
-}
-
 /* checkbox */
 input[type=checkbox] {
     display: none;
@@ -81,13 +75,13 @@ input[type=checkbox] + label {
 input[type=checkbox]:disabled + label:after {
     content: '\2718';
     position: absolute;
-    font-size: 1.5em;
+    font-size: 1.5rem;
     cursor: default;
 }
 input[type=checkbox]:checked + label:after {
     content: '\2714';
     position: absolute;
-    font-size: 1.5em;
+    font-size: 1.5rem;
 }
 
 /* calculation */
@@ -96,27 +90,27 @@ input[type=checkbox]:checked + label:after {
     color: var(--bs-light);
 }
 
-/* bonus value */
+/* bonus data */
 [bonus-data]:after {
     content: attr(bonus-data);
     display: block;
     position: absolute;
     color: var(--bs-light);
-    margin: -.5em 0 0 1em;
-    padding: .1em;
-    width: 1.5em;
-    height: 1.5em;
-    font-size: .75em;
+    margin: -.25rem 0 0 .5rem;
+    width: .75rem;
+    height: .75rem;
+    font-size: .5rem;
     text-align: center;
     vertical-align: middle;
-    border-radius: .25em;
+    border-radius: .25rem;
     z-index: 9;
 }
 [bonus-color$="-r"]:after {
-    margin: -.75em 0 0 -.75em;
+    margin: -.75rem 0 0 -.5rem;
 }
 [bonus-color$="-c"]:after {
-    margin: -.5em 0 0 2.75em;
+    right: -.5rem;
+    bottom: -.5rem;
 }
 [bonus-color^="yellow"]:after {
     background: var(--bs-yellow);
@@ -135,4 +129,28 @@ input[type=checkbox]:checked + label:after {
 }
 [bonus-color^="bonus"]:after {
     background: var(--bs-dark);
+}
+
+/* position bonus data larger screens */
+@media only screen and (min-width:29rem) {
+    .symbol {
+        padding: .25rem;
+    }
+}
+@media only screen and (min-width:34rem) {
+    [bonus-data]:after {
+        margin: -.25rem 0 0 .75rem;
+        width: 1rem;
+        height: 1rem;
+        font-size: .75rem;
+    }
+    [bonus-color$="-r"]:after {
+        margin: -.5rem 0 0 -.5rem;
+    }
+    [bonus-color$="-c"]:after {
+        right: -.75rem;
+    }
+    .symbol {
+        padding: .5rem;
+    }
 }
